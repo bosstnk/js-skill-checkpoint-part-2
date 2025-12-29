@@ -7,3 +7,8 @@ const students = [
 ];
 
 // เริ่มเขียนโค้ดตรงนี้
+const score = students
+  .filter(student => student.score > 50)
+  .reduce((sum,cur) => sum + (cur.score * 1.1) ,0)
+
+console.log(`Total score is ${score}`)
