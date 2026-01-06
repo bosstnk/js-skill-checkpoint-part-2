@@ -5,10 +5,14 @@ let getUsers = async () => {
   return data;
 };
 
-getUsers().then((data) => {
-  const result = data
-    .filter((user) => user.name.length > 17)
-    .map((user) => user.name);
+async function getUsersDataNameLengthLower17() {
+  try {
+    const user = await getUsers()
+    const result = user.filter((user) => user.name.length > 17).map((user) => user.name);
+    console.log(result)
+  } catch(error) {
+    console.log("There was an error fetching the data.")
+  };
+}
 
-  console.log(result);
-});
+getUsersDataNameLengthLower17()
